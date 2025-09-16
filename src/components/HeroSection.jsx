@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 
 const HeroSection = () => {
@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="flex justify-between w-full max-w-[65rem] items-center">
         <div className="text-center w-[22rem] h-[25rem] bg-zinc-100 bg-opacity-70 rounded-lg shadow-lg text-black">
           <img
-            src="src/assets/bgmain.jpg"
+            src="https://plus.unsplash.com/premium_photo-1713447395823-2e0b40b75a89?q=80&w=382&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Cake Image"
             className="object-cover w-full h-full p-4 rounded-lg"
           />

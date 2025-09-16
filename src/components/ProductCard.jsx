@@ -29,11 +29,11 @@ export default function ProductCard({
         className
       )}
     >
-      <div className="relative w-full h-64">
+      <div className="relative w-full h-64 overflow-hidden">
         <img
           src={imageUrl}
           alt={name}
-          className="w-full h-full object-cover transition-all duration-300 hover:scale-105"
+          className="w-full h-full object-cover object-center transition-all duration-300 hover:scale-105"
         />
 
         <Badge className="absolute top-3 right-3 bg-purple-700 hover:bg-purple-600 capitalize">
@@ -57,7 +57,7 @@ export default function ProductCard({
           variant="default"
           className="w-full bg-purple-700 hover:bg-purple-600"
         >
-          <Link to={`/products/${id}`}>
+          <Link to={`/products/${id}`} onClick={() => window.scrollTo(0,0)}>
             View Details
             <ExternalLink className="ml-2 h-4 w-4" />
           </Link>

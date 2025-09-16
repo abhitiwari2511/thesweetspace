@@ -1,13 +1,13 @@
+import AboutSection from "../components/AboutSection";
 import FeatureSection from "../components/FeatureSection";
 import HeroSection from "../components/HeroSection";
-import Navbar from "../components/Navbar";
 
 const HomePage = () => {
   return (
-    <div className='w-full min-h-screen pt-20'>
-      <Navbar />
+    <div className="w-full min-h-screen pt-20">
       <HeroSection />
       <FeatureSection />
+      <AboutSection />
     </div>
   );
 };

@@ -30,12 +30,11 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  // Set active index based on current route
   useEffect(() => {
     const currentIndex = navItems.findIndex(
       (item) =>
         item.path === location.pathname ||
-        (item.path === "/" && location.pathname === "/")
+        (item.path === "/" && location.pathname === "/"),
     );
     setActiveIndex(currentIndex >= 0 ? currentIndex : 0);
   }, [location.pathname]);
@@ -49,18 +48,18 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border select-none border-zinc-600 overflow-hidden w-full max-w-[40rem] left-1/2 transform -translate-x-1/2 absolute top-4">
-      <div className="flex bg-cyan-50 m-1.5 text-lg cursor-pointer p-2 justify-between items-center mx-auto">
+    <div className="fixed z-50 border select-none border-zinc-600 w-full md:max-w-[40rem] left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 md:top-4 bg-white shadow-md">
+      <div className="flex bg-white text-base sm:text-lg cursor-pointer px-3 sm:px-4 py-2 sm:py-3 justify-between items-center mx-auto min-h-[52px] sm:min-h-[60px]">
         <Link to="/">
-          <div className="text-lg gap-2 items-center flex justify-center font-bold text-violet-900 p-2">
-            <Cake className="h-8 w-8" />
-            The Sweet Space
+          <div className="text-sm sm:text-base md:text-lg gap-1.5 sm:gap-2 items-center flex justify-center font-bold text-violet-900 px-1.5 sm:px-2">
+            <Cake className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
+            <span className="whitespace-nowrap leading-none">
+              The Sweet Space
+            </span>
           </div>
         </Link>
 
-        {/* Navigation Items with Sliding Background - Hidden on mobile */}
         <div className="hidden md:flex font-medium relative">
-          {/* Sliding Background */}
           <div
             className="absolute top-0 left-0 h-full bg-pink-300 rounded transition-transform duration-300 ease-in-out z-0"
             style={{
@@ -69,7 +68,6 @@ const Navbar = () => {
             }}
           />
 
-          {/* Navigation Links */}
           {navItems.map((item, index) => (
             <Link
               key={item.path}
@@ -86,13 +84,16 @@ const Navbar = () => {
         </div>
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button className="text-violet-900 z-20 p-2" onClick={toggleMenu}>
+          <button
+            className="text-violet-900 z-20 p-1.5 sm:p-2"
+            onClick={toggleMenu}
+          >
             <motion.div
               initial={{ rotate: 0 }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
             >
-              <Menu size={24} />
+              <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
             </motion.div>
           </button>
         </div>
@@ -119,9 +120,9 @@ const Navbar = () => {
                 </motion.div>
               </button>
 
-              <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center h-full w-full">
                 <motion.div
-                  className="-translate-y-[60%] space-y-8"
+                  className="space-y-10"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
@@ -138,7 +139,7 @@ const Navbar = () => {
                     >
                       <Link
                         to={item.path}
-                        className="text-black font-bold text-3xl font-sans hover:text-gray-600 inline-block"
+                        className="text-black font-bold text-4xl sm:text-5xl font-sans hover:text-gray-600 inline-block"
                         onClick={toggleMenu}
                       >
                         {item.name}
